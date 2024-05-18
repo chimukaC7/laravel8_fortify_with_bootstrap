@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// web.php file specify the routes that are not accessible until a user is verified
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('home', 'home')->name('home');
     Route::view('password/update', 'auth.passwords.update')->name('passwords.update');

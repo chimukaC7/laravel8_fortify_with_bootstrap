@@ -39,7 +39,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(function () {
             return view('auth.login');
         });
-        
+
         Fortify::registerView(function () {
             return view('auth.register');
         });
@@ -50,23 +50,23 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::resetPasswordView(function ($request) {
-            return view('auth.passwords.reset', ['request' => $request]);
+            return view('auth.passwords.reset', compact('request'));
         });
-    
+
         Fortify::verifyEmailView(function () {
-            return view('auth.verify'); 
+            return view('auth.verify');
         });
 
 
         Fortify::confirmPasswordView(function () {
-            return view('auth.password-confirm'); 
-        });
-        
-        Fortify::twoFactorChallengeView(function () {
-            return view('auth.two-factor-challenge'); 
+            return view('auth.password-confirm');
         });
 
-        
+        Fortify::twoFactorChallengeView(function () {
+            return view('auth.two-factor-challenge');
+        });
+
+
         RateLimiter::for('login', function (Request $request) {
             return Limit::perMinute(5)->by($request->email.$request->ip());
         });

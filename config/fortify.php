@@ -137,6 +137,7 @@ return [
         Features::emailVerification(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
+            //If we don't want users to enter their password during 2FA we can set the confirmPassword value to false
             'confirmPassword' => true,
         ]),
     ],
