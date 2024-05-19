@@ -137,8 +137,12 @@ return [
         Features::emailVerification(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
+            //To enable Fortify's two factor authentication feature we need to add it to our features array in
             //If we don't want users to enter their password during 2FA we can set the confirmPassword value to false
             'confirmPassword' => true,
+            //the default validity window for 2fa code is 1 minute which while ideal for Authentication based app based 2fa
+            //config value to account for your preferred delivery method delays. I will use 3 but your mileage may vary
+            'window' => 3,
         ]),
     ],
 
