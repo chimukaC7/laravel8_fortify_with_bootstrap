@@ -6,7 +6,10 @@
             <div class="card mt-2"  style="display: block;" id="secretCodeForm">
                 <div class="card-header">{{ __('Two Factor Secret Code') }}</div>
                 <div class="card-body">
+
                     <p style="font-weight: bold;">{{ __('Please enter your secret code to login.') }}</p>
+
+                    <p>Please confirm access to your account by entering the secret code provided by your authentication app or email</p>
 
                     <form method="POST" action="{{ route('two-factor.login') }}">
                         @csrf
@@ -93,5 +96,5 @@
         document.getElementById('secretCodeForm').style.display = "block";
         return true;
     }
-</script>    
+</script>
 @endsection

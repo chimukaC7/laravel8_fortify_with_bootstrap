@@ -40,6 +40,12 @@
                                     Disable
                                 </button>
                             @else
+                                <h6>You have not enabled two-factor authentication</h6>
+                                <p class="text-justify">
+                                    When two-factor authentication is enabled you will be prompted for a secure random token during authentication.
+                                    You may retrieve this token from your authentication application
+                                </p>
+
                                 <button class="btn btn-success">
                                     Enable
                                 </button>
