@@ -46,9 +46,10 @@ class SendOTP extends Notification
     public function toMail(User $notifiable)
     {
         return (new MailMessage)
-            ->subject(config('app.name') . " OPT")
-            ->line('Your security code is ' . $this->getTwoFactorCode($notifiable))
+            ->subject(config('app.name') . " OTP")
+            ->line('Your secret code is ' . $this->getTwoFactorCode($notifiable))
 //            ->action('Notification Action', url('/'))
+            ->line('The code will expire in 3 minutes')
             ->line('Thank you for using our application!');
     }
 
