@@ -29,7 +29,7 @@ class SendOTP extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function via(User $notifiable): array
@@ -40,13 +40,14 @@ class SendOTP extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail(User $notifiable)
     {
         return (new MailMessage)
-            ->line('Your security code is '.$this->getTwoFactorCode($notifiable))
+            ->subject(config('app.name') . " OPT")
+            ->line('Your security code is ' . $this->getTwoFactorCode($notifiable))
 //            ->action('Notification Action', url('/'))
             ->line('Thank you for using our application!');
     }
@@ -54,7 +55,7 @@ class SendOTP extends Notification
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function toArray(User $notifiable)
@@ -71,7 +72,7 @@ class SendOTP extends Notification
      */
     public function getTwoFactorCode(User $notifiable): ?string
     {
-        if(!$notifiable->two_factor_secret){
+        if (!$notifiable->two_factor_secret) {
             return null;
         }
 
