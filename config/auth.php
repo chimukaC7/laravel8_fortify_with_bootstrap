@@ -113,5 +113,5 @@ return [
     */
 
     'password_timeout' => 1800,
-
+    'password_expires_days' => 30,
 ];
